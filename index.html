@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nawaf Logistics — Premium</title>
+
+  <!-- Premium Silver + Gold Theme (Inline CSS for portability) -->
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#0f1112;
+      --muted:#9aa4ad;
+      --gold:#c9a84b;
+      --silver:#d8d8d8;
+      --accent:#0b5394; /* subtle blue */
+      --card:#111214;
+      --glass: rgba(255,255,255,0.03);
+    }
+
+    html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;background:linear-gradient(180deg,#020202 0%, #0b0b0b 100%);color:var(--silver);}    
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+
+/* Header */
+    header{position:sticky;top:0;z-index:999;background:linear-gradient(90deg, rgba(10,10,10,0.6), rgba(4,4,4,0.6));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    .nav {display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
+    .brand {display:flex;align-items:center;gap:12px;}
+    .brand .logo-box{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--gold), #b88f39);display:flex;align-items:center;justify-content:center;font-weight:700;color:#080808;font-size:16px}
+    .brand .title{font-weight:700;font-size:18px;color:var(--silver)}
+    nav .links{display:flex;gap:18px;align-items:center}
+    nav .links a{color:var(--silver);text-decoration:none;padding:8px 10px;border-radius:6px;font-weight:600}
+    nav .links a.active, nav .links a:hover{background:linear-gradient(90deg, rgba(201,168,75,0.12), rgba(255,255,255,0.02));color:var(--gold)}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--silver);padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
+    .cta{background:var(--gold);color:#081018;padding:9px 14px;border-radius:8px;font-weight:700;margin-left:8px}
+
+/* Hero */
+    .hero{padding:80px 0;display:flex;gap:30px;align-items:center}
+    .hero .left{flex:1}
+    .hero h1{font-size:38px;margin:0 0 12px;color:var(--gold);letter-spacing:0.2px}
+    .hero p{color:var(--silver);margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px}
+    .btn-primary{background:var(--gold);color:#070707;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
+    .btn-outline{border:1px solid rgba(255,255,255,0.08);color:var(--silver);padding:11px 16px;border-radius:8px;text-decoration:none}
+
+    .hero .visual{flex:1;display:flex;justify-content:center}
+    .van-mock{width:320px;height:200px;background:linear-gradient(90deg,#0b5394,#2b7bd7);border-radius:18px;position:relative;box-shadow:0 10px 40px rgba(11,83,148,0.18)}
+    .van-mock:before{content:'';position:absolute;left:18px;top:24px;width:120px;height:80px;background:linear-gradient(90deg,#fff8,#ffffff12);border-radius:8px}
+    .van-mock:after{content:'NKD';position:absolute;right:20px;bottom:18px;color:#fff;font-weight:800;font-size:22px}
+
+/* Sections */
+    section{padding:60px 0}
+    h2{font-size:26px;margin:0 0 18px;color:var(--gold)}
+    p.lead{color:var(--silver);line-height:1.6}
+
+/* Service Grid */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h3{margin:0 0 8px;color:var(--silver)}
+    .card p{margin:0;color:var(--muted)}
+
+/* Premium table */
+    .table-wrap{overflow:auto;background:linear-gradient(180deg,#0f1112,#0b0b0b);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    table.pricing{width:100%;border-collapse:collapse;color:var(--silver);min-width:820px}
+    table.pricing thead th{background:#070707;color:var(--gold);padding:14px;text-align:left;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.03)}
+    table.pricing td{padding:14px;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--silver)}
+    table.pricing tr.alt{background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
+
+/* Contract block */
+    .contract-box{background:linear-gradient(180deg, rgba(201,168,75,0.03), rgba(255,255,255,0.01));padding:22px;border-radius:12px;border-left:4px solid var(--gold);color:var(--silver)}
+
+/* About */
+    .about-grid{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start}
+    .about-card{background:var(--panel);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);color:var(--silver)}
+
+/* Contact footer */
+    footer{padding:28px 0;background:linear-gradient(180deg,#080808,#0b0b0b);border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted)}
+
+/* Responsive */
+    @media(max-width:900px){
+      .services-grid{grid-template-columns:repeat(1,1fr)}
+      .about-grid{grid-template-columns:1fr}
+      .van-mock{width:260px;height:150px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true">NKD</div>
+        <div>
+          <div class="title" data-en="Nawaf Logistics" data-ar="نواف لوجستيك">Nawaf Logistics</div>
+          <div style="font-size:12px;color:var(--muted)" data-en="Fast. Reliable. Nationwide." data-ar="سريع. موثوق. على مستوى المملكة">Fast. Reliable. Nationwide.</div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="links">
+          <a href="#home" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="#services" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="#premium" class="nav-link" data-en="Premium" data-ar="الباقات المميزة">Premium</a>
+          <a href="#contract" class="nav-link" data-en="Contract" data-ar="العقد">Contract</a>
+          <a href="#about" class="nav-link" data-en="About" data-ar="من نحن">About</a>
+          <button id="langToggle" class="lang-btn" aria-label="Toggle Language">AR</button>
+          <a href="mailto:nawaflogistics7@outlook.com" class="cta" data-en="Contact Us" data-ar="اتصل بنا">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container" data-lang="en">
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="left">
+        <h1 data-en="Precision. Speed. Trust." data-ar="دقة. سرعة. ثقة.">Precision. Speed. Trust.</h1>
+        <p class="lead" data-en="Same-Day & Next-Day Delivery Across Riyadh. Technology-driven fulfillment and professional drivers at your service."
+           data-ar="توصيل في نفس اليوم واليوم التالي داخل الرياض. خدمات تنفيذية مدعومة بالتقنية وسائقون محترفون في خدمتك.">
+          Same-Day & Next-Day Delivery Across Riyadh. Technology-driven fulfillment and professional drivers at your service.
+        </p>
+
+        <div class="actions">
+          <a href="#premium" class="btn-primary" data-en="Request Pricing" data-ar="اطلب السعر">Request Pricing</a>
+          <a href="#contract" class="btn-outline" data-en="Get Contract" data-ar="احصل على العقد">Get Contract</a>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="van-mock" role="img" aria-label="Delivery van visual"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+      <p class="lead" data-en="Comprehensive logistics solutions tailored for e-commerce, retail and corporate clients." data-ar="حلول لوجستية متكاملة مخصصة للتجارة الإلكترونية وتجزئة الشركات والعملاء.">
+        Comprehensive logistics solutions tailored for e-commerce, retail and corporate clients.
+      </p>
+
+      <div class="services-grid" aria-hidden="false">
+
+        <div class="card">
+          <h3 data-en="Last Mile Delivery" data-ar="التوصيل الأخير">Last Mile Delivery</h3>
+          <p data-en="Fast door-to-door delivery across Riyadh with real-time tracking." data-ar="توصيل سريع من الباب إلى الباب داخل الرياض مع تتبع فوري.">
+            Fast door-to-door delivery across Riyadh with real-time tracking.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 data-en="Warehousing & Fulfillment" data-ar="التخزين والتنفيذ">Warehousing & Fulfillment</h3>
+          <p data-en="Secure storage, picking, packing & distribution from our As Sulay warehouse." data-ar="تخزين آمن وتجهيز وتعبئة وتوزيع من مستودعنا في السلي.">
+            Secure storage, picking, packing & distribution from our As Sulay warehouse.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 data-en="B2B Contract Logistics" data-ar="الخدمات اللوجستية للشركات">B2B Contract Logistics</h3>
+          <p data-en="Customized scheduled routes and bulk distribution for businesses." data-ar="مسارات مجدولة وتوزيع بكميات كبيرة مخصصة للشركات.">
+            Customized scheduled routes and bulk distribution for businesses.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 data-en="E-Commerce Delivery Solutions" data-ar="حلول توصيل للتجارة الإلكترونية">E-Commerce Delivery Solutions</h3>
+          <p data-en="Integrated shipping, COD handling and returns management." data-ar="شحن متكامل، خدمة الدفع عند الاستلام وإدارة المرتجعات.">
+            Integrated shipping, COD handling and returns management.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 data-en="Custom Courier Service" data-ar="خدمة التوصيل المخصصة">Custom Courier Service</h3>
+          <p data-en="Urgent pick-up, priority delivery and document courier." data-ar="استلام عاجل، توصيل أولوية وخدمة وثائق.">
+            Urgent pick-up, priority delivery and document courier.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 data-en="Cash on Delivery (COD) Handling" data-ar="خدمة الدفع عند الاستلام">Cash on Delivery (COD) Handling</h3>
+          <p data-en="Secure cash collection, daily reconciliation and timely remittance." data-ar="تحصيل نقدي آمن، وتسوية يومية وتحويل فوري عند المطلوب.">
+            Secure cash collection, daily reconciliation and timely remittance.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREMIUM / PRICING -->
+    <section id="premium">
+      <h2 data-en="Premium Packages" data-ar="الباقات المميزة">Premium Packages</h2>
+      <p class="lead" data-en="Optimized enterprise packages and monthly plans for high-volume clients." data-ar="باقات مؤسسية محسّنة وخطط شهرية للعملاء ذوي الأحجام الكبيرة.">
+        Optimized enterprise packages and monthly plans for high-volume clients.
+      </p>
+
+      <div class="table-wrap">
+        <table class="pricing" role="table" aria-label="Pricing Table">
+          <thead>
+            <tr>
+              <th data-en="Service Type" data-ar="نوع الخدمة">Service Type</th>
+              <th data-en="Details" data-ar="التفاصيل">Details</th>
+              <th data-en="Rate (Per Delivery)" data-ar="السعر (لكل عملية)">Rate (Per Delivery)</th>
+              <th data-en="Monthly Package (100+ Deliveries)" data-ar="الباقة الشهرية (100+ شحنة)">Monthly Package (100+ Deliveries)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="alt">
+              <td data-en="Local Delivery (Within Riyadh)" data-ar="التوصيل داخل الرياض">Local Delivery (Within Riyadh)</td>
+              <td data-en="Same-Day & Next-Day" data-ar="نفس اليوم و اليوم التالي">Same-Day & Next-Day</td>
+              <td data-en="SAR 10" data-ar="10 ريال">SAR 10</td>
+              <td data-en="SAR 900" data-ar="900 ريال">SAR 900</td>
+            </tr>
+
+            <tr>
+              <td data-en="B2B Contract Logistics" data-ar="الخدمات اللوجستية التعاقدية">B2B Contract Logistics</td>
+              <td data-en="Scheduled & Bulk Routes" data-ar="مسارات مجدولة وبكميات كبيرة">Scheduled & Bulk Routes</td>
+              <td data-en="SAR 15" data-ar="15 ريال">SAR 15</td>
+              <td data-en="SAR 1200" data-ar="1200 ريال">SAR 1200</td>
+            </tr>
+
+            <tr class="alt">
+              <td data-en="Custom Courier" data-ar="توصيل خاص">Custom Courier</td>
+              <td data-en="On-Demand Pickup/Drop" data-ar="استلام وتسليم عند الطلب">On-Demand Pickup/Drop</td>
+              <td data-en="SAR 12" data-ar="12 ريال">SAR 12</td>
+              <td data-en="SAR 1000" data-ar="1000 ريال">SAR 1000</td>
+            </tr>
+
+            <tr>
+              <td data-en="Warehouse Fulfillment" data-ar="التخزين والتنفيذ">Warehouse Fulfillment</td>
+              <td data-en="Storage + Order Handling" data-ar="تخزين + معالجة الطلبات">Storage + Order Handling</td>
+              <td data-en="SAR 5 / order" data-ar="5 ريال / طرد">SAR 5 / order</td>
+              <td data-en="Custom Quote" data-ar="سعر حسب الطلب">Custom Quote</td>
+            </tr>
+
+            <tr class="alt">
+              <td data-en="E-Commerce Support" data-ar="دعم التجارة الإلكترونية">E-Commerce Support</td>
+              <td data-en="Packing, Tracking & Return" data_ar="التغليف، التتبع والمرتجعات" data-en="Packing, Tracking & Return">Packing, Tracking & Return</td>
+              <td data-en="SAR 8" data-ar="8 ريال">SAR 8</td>
+              <td data-en="SAR 750" data-ar="750 ريال">SAR 750</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="lead" style="text-align:center;margin-top:14px" data-en="Custom enterprise packages available upon request." data-ar="باقات مخصصة للشركات متوفرة عند الطلب.">
+        Custom enterprise packages available upon request.
+      </p>
+    </section>
+
+    <!-- CONTRACT -->
+    <section id="contract">
+      <h2 data-en="Service Agreement (Contract)" data-ar="اتفاقية الخدمة (العقد)">Service Agreement (Contract)</h2>
+      <p class="lead" data-en="Below is a short service contract outline. A full contract will be provided and signed per client." data-ar="فيما يلي ملخص عقد الخدمة. سيتم تزويد كل عميل بالعقد الكامل للتوقيع.">
+        Below is a short service contract outline. A full contract will be provided and signed per client.
+      </p>
+
+      <div class="contract-box">
+        <h3 data-en="Parties" data-ar="الأطراف">Parties</h3>
+        <p data-en="This Agreement is between Nawaf Logistics (CR: 1010707292) and the Client." data-ar="هذه الاتفاقية بين نواف لوجستيك (سجل تجاري: 1010707292) والعميل.">This Agreement is between Nawaf Logistics (CR: 1010707292) and the Client.</p>
+
+        <h3 data-en="Scope of Services" data-ar="نطاق الخدمات">Scope of Services</h3>
+        <p data-en="Provision of delivery, warehousing, fulfillment and COD services as requested by the client." data_ar="توفير خدمات التوصيل والتخزين والتنفيذ والدفع عند الاستلام حسب طلب العميل.">Provision of delivery, warehousing, fulfillment and COD services as requested by the client.</p>
+
+        <h3 data-en="Payment Terms" data-ar="شروط الدفع">Payment Terms</h3>
+        <p data-en="Invoices issued monthly. Payment due within 7 days of invoice. Late payments subject to 5% charge." data-ar="الفواتير شهرية. الدفع خلال 7 أيام من تاريخ الفاتورة. أي تأخير يترتب عليه غرامة بنسبة 5%.">Invoices issued monthly. Payment due within 7 days of invoice. Late payments subject to 5% charge.</p>
+
+        <h3 data-en="Liability & Insurance" data_ar="المسؤولية والتأمين" data-en="Liability & Insurance">Liability & Insurance</h3>
+        <p data-en="Nawaf Logistics will handle shipments with care and provide basic transport insurance for goods in transit." data-ar="تتعهد نواف لوجستيك بمعاملة الشحنات بعناية وتوفير تأمين أساسي أثناء النقل.">Nawaf Logistics will handle shipments with care and provide basic transport insurance for goods in transit.</p>
+
+        <h3 data-en="Signatures" data-ar="التوقيعات">Signatures</h3>
+        <p data-en="Nawaf Khalid Al Dosari — Founder" data-ar="نواف خالد الدوسري — المؤسس">Nawaf Khalid Al Dosari — Founder</p>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 data-en="About Us" data-ar="من نحن">About Us</h2>
+      <div class="about-grid">
+        <div>
+          <div class="about-card">
+            <h3 data-en="Who We Are" data-ar="من نحن">Who We Are</h3>
+            <p data-en="Nawaf Logistics is a premium Saudi-based logistics and fulfillment company located in As Sulay, Riyadh. We provide fast, reliable and technology-driven delivery solutions." data-ar="نواف لوجستيك هي شركة لوجستية سعودية تقدم خدمات التخزين والتنفيذ والتوصيل من موقعها في السلي، الرياض. نقدم حلول توصيل سريعة وموثوقة ومدعومة بالتقنية.">
+              Nawaf Logistics is a premium Saudi-based logistics and fulfillment company located in As Sulay, Riyadh. We provide fast, reliable and technology-driven delivery solutions.
+            </p>
+
+            <h3 data-en="Mission" data-ar="مهمتنا">Mission</h3>
+            <p data-en="To deliver logistics excellence through speed, transparency and innovation." data-ar="تقديم التميز اللوجستي من خلال السرعة والشفافية والابتكار.">To deliver logistics excellence through speed, transparency and innovation.</p>
+
+            <h3 data-en="Vision" data-ar="رؤيتنا">Vision</h3>
+            <p data-en="To become one of Saudi Arabia’s leading logistics and fulfillment partners." data-ar="أن نصبح أحد أبرز شركاء اللوجستيات والتنفيذ في المملكة.">To become one of Saudi Arabia’s leading logistics and fulfillment partners.</p>
+          </div>
+        </div>
+
+        <aside>
+          <div class="about-card">
+            <h3 data-en="Contact Info" data-ar="معلومات الاتصال">Contact Info</h3>
+            <p data-en="Address: As Sulay, Riyadh 14266" data-ar="العنوان: السلي، الرياض 14266">Address: As Sulay, Riyadh 14266</p>
+            <p data-en="Email: nawaflogistics7@outlook.com" data-ar="البريد الإلكتروني: nawaflogistics7@outlook.com">Email: nawaflogistics7@outlook.com</p>
+            <p data-en="Phone: 0987654321" data-ar="الهاتف: 0987654321">Phone: 0987654321</p>
+            <p data-en="CR: 1010707292" data-ar="السجل التجاري: 1010707292">CR: 1010707292</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT (quick) -->
+    <section id="contact">
+      <h2 data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h2>
+      <p class="lead" data-en="For pricing, contracts and onboarding — contact our sales team." data-ar="للحصول على الأسعار والعقود والتسجيل، تواصل مع فريق المبيعات لدينا.">
+        For pricing, contracts and onboarding — contact our sales team.
+      </p>
+
+      <div style="max-width:720px;margin:18px auto;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <a href="mailto:nawaflogistics7@outlook.com" class="btn-outline" data-en="Email Us" data-ar="أرسل بريدًا">Email Us</a>
+        <a href="tel:0987654321" class="btn-primary" data-en="Call Us" data-ar="اتصل بنا">Call Us</a>
+        <a href="https://wa.me/966532197885" target="_blank" rel="noopener" class="btn-outline" data-en="WhatsApp" data-ar="واتساب">WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:8px" data-en="© 2025 Nawaf Logistics — All Rights Reserved." data-ar="© 2025 نواف لوجستيك — كل الحقوق محفوظة.">© 2025 Nawaf Logistics — All Rights Reserved.</div>
+      <div style="font-size:13px;color:var(--muted)" data-en="Address: As Sulay, Riyadh 14266 • Email: nawaflogistics7@outlook.com • Phone: 0987654321" data-ar="العنوان: السلي، الرياض 14266 • البريد: nawaflogistics7@outlook.com • الهاتف: 0987654321">Address: As Sulay, Riyadh 14266 • Email: nawaflogistics7@outlook.com • Phone: 0987654321</div>
+    </div>
+  </footer>
+
+  <!-- Language toggle + small JS for translations & behavior -->
+  <script>
+    (function(){
+      const langBtn = document.getElementById('langToggle');
+      const content = document.getElementById('content');
+      let lang = 'en'; // default
+
+      // collect all elements which have data-en/data-ar
+      const nodes = Array.from(document.querySelectorAll('[data-en]'));
+
+      function applyLang(to){
+        lang = to;
+        // set dir for page and html lang attribute
+        if(to === 'ar'){
+          document.documentElement.lang = 'ar';
+          document.body.style.direction = 'rtl';
+          content.setAttribute('data-lang','ar');
+          langBtn.innerText = 'EN';
+        } else {
+          document.documentElement.lang = 'en';
+          document.body.style.direction = 'ltr';
+          content.setAttribute('data-lang','en');
+          langBtn.innerText = 'AR';
+        }
+
+        // swap text for all nodes
+        nodes.forEach(el=>{
+          try{
+            if(to === 'ar'){
+              el.innerText = el.getAttribute('data-ar') || el.getAttribute('data-en') || el.innerText;
+              // align if block element
+              el.style.textAlign = (el.tagName === 'P' || el.tagName==='DIV' || el.tagName==='H1' || el.tagName==='H2') ? 'right' : '';
+            } else {
+              el.innerText = el.getAttribute('data-en') || el.getAttribute('data-ar') || el.innerText;
+              el.style.textAlign = (el.tagName === 'P' || el.tagName==='DIV' || el.tagName==='H1' || el.tagName==='H2') ? 'left' : '';
+            }
+          }catch(e){}
+        });
+
+        // update nav link active colors (in case text length changed)
+        // nothing else needed—CSS handles visual
+      }
+
+      // toggle on click
+      langBtn.addEventListener('click', function(){
+        applyLang(lang === 'en' ? 'ar' : 'en');
+      });
+
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target){
+            const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+            window.scrollTo({top,behavior:'smooth'});
+          }
+        });
+      });
+
+      // init - ensure english is applied
+      applyLang('en');
+    })();
+  </script>
+
+</body>
+</html>
